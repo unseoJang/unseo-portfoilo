@@ -1,39 +1,80 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import loadingStyles from "./loading.module.css";
 import styles from "./page.module.css";
+import { LandingMain } from "@/widgets/landing/ui/LandingMain";
 
 export default function Home() {
+  const [showInitialLoading, setShowInitialLoading] = useState(true);
+  const [isLoadingExiting, setIsLoadingExiting] = useState(false);
+
+  useEffect(() => {
+    const loadingDurationMs = 5000;
+    const exitDurationMs = 700;
+
+    const startExitTimeoutId = window.setTimeout(() => {
+      setIsLoadingExiting(true);
+    }, loadingDurationMs);
+
+    const hideTimeoutId = window.setTimeout(() => {
+      setShowInitialLoading(false);
+      setIsLoadingExiting(false);
+    }, loadingDurationMs + exitDurationMs);
+
+    return () => {
+      window.clearTimeout(startExitTimeoutId);
+      window.clearTimeout(hideTimeoutId);
+    };
+  }, []);
+
+  useEffect(() => {
+    const root = document.documentElement;
+    const body = document.body;
+
+    if (showInitialLoading) {
+      root.style.overflow = "hidden";
+      body.style.overflow = "hidden";
+      return;
+    }
+
+    root.style.overflow = "";
+    body.style.overflow = "";
+
+    return () => {
+      root.style.overflow = "";
+      body.style.overflow = "";
+    };
+  }, [showInitialLoading]);
+
+  const shouldRevealHero = !showInitialLoading || isLoadingExiting;
+
   return (
-    <div className={styles.page}>
-      <div className={styles.glow} aria-hidden />
-      <div className={styles.glowSecondary} aria-hidden />
-      <main className={styles.hero}>
-        <p className={styles.eyebrow}>Frontend Engineer Portfolio</p>
-        <h1>
-          Build fast,
-          <span className={styles.accent}> delightful web products</span>
-        </h1>
-        <p className={styles.description}>
-          I design and ship responsive experiences with React and Next.js,
-          focusing on clean UI, measurable performance, and user-centered
-          iteration.
-        </p>
-        <div className={styles.metrics}>
-          <span>90+ Lighthouse score</span>
-          <span>TTI improved by 35%</span>
-          <span>10+ shipped projects</span>
+    <>
+      <div className={styles.page}>
+        <div className={styles.glow} aria-hidden />
+        <div className={styles.glowSecondary} aria-hidden />
+        <LandingMain shouldRevealHero={shouldRevealHero} />
+      </div>
+
+      {showInitialLoading && (
+        <div
+          className={`${loadingStyles.loadingScreen} ${
+            isLoadingExiting ? loadingStyles.loadingExit : ""
+          }`}
+          role="status"
+          aria-live="polite"
+        >
+          <div className={loadingStyles.glow} aria-hidden />
+          <div className={loadingStyles.content}>
+            <p className={loadingStyles.name}>unseo</p>
+            <h1 className={loadingStyles.title}>Portfolio</h1>
+            <p className={`${loadingStyles.caption} ${loadingStyles.korean}`}>
+              포트폴리오를 준비하고 있습니다...
+            </p>
+          </div>
         </div>
-        <div className={styles.ctas}>
-          <a className={styles.primary} href="/resume.pdf" download>
-            Download Resume
-          </a>
-          <a
-            className={styles.secondary}
-            href="mailto:contact@example.com"
-          >
-            Send Email
-          </a>
-        </div>
-        <p className={styles.scrollHint}>Scroll to explore selected projects</p>
-      </main>
-    </div>
+      )}
+    </>
   );
 }
