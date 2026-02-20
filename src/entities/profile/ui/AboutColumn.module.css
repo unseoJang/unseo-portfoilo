@@ -48,6 +48,30 @@
   color: rgba(226, 232, 240, 0.9);
 }
 
+.principleList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 7px;
+}
+
+.principleList li {
+  display: flex;
+  gap: 8px;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: rgba(226, 232, 240, 0.9);
+}
+
+.principleList li::before {
+  content: "✦";
+  flex-shrink: 0;
+  margin-top: 1px;
+  font-size: 0.6rem;
+  color: rgba(125, 211, 252, 0.8);
+}
+
 @media (hover: hover) and (pointer: fine) {
   .infoCard a:hover {
     color: #bae6fd;

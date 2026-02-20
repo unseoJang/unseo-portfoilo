@@ -27,16 +27,28 @@ export function AboutColumn() {
 
 			<CompanyHistoryCard />
 
-			<article className={styles.infoCard}>
-				<h2>블로그</h2>
-				<a
-					href="https://velog.io/@qqbck123/posts"
-					target="_blank"
-					rel="noreferrer noopener"
-				>
-					velog.io/@qqbck123/posts
-				</a>
-			</article>
+		<article className={styles.infoCard}>
+			<h2>개발 원칙</h2>
+			<ul className={styles.principleList}>
+				<li>사용자 행동 맥락을 먼저 이해하고 설계한다</li>
+				<li>성능은 기능만큼 중요하다 — TTI, LCP를 항상 의식한다</li>
+				<li>컴포넌트는 하나의 책임만 가진다</li>
+				<li>상태는 최대한 좁은 범위에서 관리한다</li>
+				<li>접근성(a11y)을 처음부터 고려한다</li>
+				<li>지금 동작하는 코드보다 나중에 읽기 쉬운 코드를 쓴다</li>
+			</ul>
+		</article>
+
+		<article className={styles.infoCard}>
+			<h2>블로그</h2>
+			<a
+				href="https://velog.io/@qqbck123/posts"
+				target="_blank"
+				rel="noreferrer noopener"
+			>
+				velog.io/@qqbck123/posts
+			</a>
+		</article>
 		</div>
 	)
 }
