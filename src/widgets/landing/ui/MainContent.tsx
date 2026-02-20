@@ -2,7 +2,7 @@ import styles from "./MainContent.module.css";
 
 export function MainContent() {
   return (
-    <section className={styles.contentColumn}>
+    <div className={styles.contentColumn}>
       <p className={styles.eyebrow}>Frontend Engineer · Jang Unseo</p>
       <h1 className={styles.title}>
         장운서
@@ -13,11 +13,11 @@ export function MainContent() {
         프론트엔드 개발자입니다.
       </p>
 
-      <section className={styles.metrics}>
+      <div className={styles.metrics}>
         <span>Lighthouse 90+</span>
         <span>TTI 35% 개선</span>
         <span>10+ 프로젝트 배포</span>
-      </section>
+      </div>
 
       <section
         className={`${styles.experienceSection} ${styles.anchorSection}`}
@@ -90,6 +90,6 @@ export function MainContent() {
       <p className={styles.scrollHint}>
         아래로 스크롤해 프로젝트와 상세 경험을 확인하세요
       </p>
-    </section>
+    </div>
   );
 }
