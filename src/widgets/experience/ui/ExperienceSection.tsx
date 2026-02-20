@@ -2,10 +2,7 @@ import styles from "./ExperienceSection.module.css";
 
 export function ExperienceSection() {
 	return (
-		<section
-			className={styles.experienceSection}
-			id="section-experience"
-		>
+		<section className={styles.experienceSection}>
 			<h2>Experience</h2>
 			<article className={styles.experienceItem}>
 				<p className={styles.experiencePeriod}>2024 - Present</p>

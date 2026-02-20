@@ -2,10 +2,7 @@ import styles from "./ContactSection.module.css";
 
 export function ContactSection() {
 	return (
-		<section
-			className={styles.contactSection}
-			id="section-contact"
-		>
+		<section className={styles.contactSection}>
 			<h2>Contact</h2>
 			<p>
 				협업 제안이나 포지션 문의는 메일로 편하게 연락 주세요. 이력서도 바로

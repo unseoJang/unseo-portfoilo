@@ -2,10 +2,7 @@ import styles from "./ProjectsSection.module.css";
 
 export function ProjectsSection() {
 	return (
-		<section
-			className={styles.projectsSection}
-			id="section-projects"
-		>
+		<section className={styles.projectsSection}>
 			<h2>Selected Projects</h2>
 			<div className={styles.projectGrid}>
 				<article className={styles.projectCard}>
