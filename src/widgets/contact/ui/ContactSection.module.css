@@ -1,0 +1,85 @@
+.contactSection {
+	width: min(1080px, 100%);
+	margin: 18px auto 0;
+	border: 1px solid rgba(255, 255, 255, 0.16);
+	border-radius: 28px;
+	backdrop-filter: blur(16px);
+	background: linear-gradient(
+		150deg,
+		rgba(15, 23, 42, 0.74),
+		rgba(17, 24, 39, 0.62)
+	);
+	box-shadow:
+		0 24px 80px rgba(0, 0, 0, 0.55),
+		inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+	padding: 48px 68px;
+	scroll-margin-top: 88px;
+}
+
+.contactSection h2 {
+	font-size: 1.56rem;
+}
+
+.contactSection p {
+	margin-top: 8px;
+	font-size: 0.9rem;
+	line-height: 1.55;
+	color: rgba(226, 232, 240, 0.88);
+}
+
+.ctas {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+	margin-top: 14px;
+}
+
+.ctas a {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 48px;
+	padding: 0 22px;
+	border-radius: 999px;
+	font-weight: 600;
+	border: 1px solid transparent;
+	transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+a.primary {
+	color: #0b1224;
+	background: linear-gradient(90deg, #67e8f9, #a78bfa, #f472b6);
+	box-shadow: 0 10px 26px rgba(167, 139, 250, 0.34);
+}
+
+a.secondary {
+	border-color: rgba(148, 163, 184, 0.42);
+	background: rgba(15, 23, 42, 0.5);
+}
+
+@media (hover: hover) and (pointer: fine) {
+	.ctas a:hover {
+		transform: translateY(-2px);
+	}
+
+	a.primary:hover {
+		box-shadow: 0 14px 34px rgba(167, 139, 250, 0.45);
+	}
+
+	a.secondary:hover {
+		background: rgba(30, 41, 59, 0.78);
+	}
+}
+
+@media (max-width: 840px) {
+	.contactSection {
+		padding: 36px 28px;
+	}
+}
+
+@media (max-width: 520px) {
+	.contactSection {
+		padding: 28px 20px;
+		border-radius: 22px;
+	}
+}

@@ -1,0 +1,65 @@
+.experienceSection {
+	width: min(1080px, 100%);
+	margin: 18px auto 0;
+	border: 1px solid rgba(255, 255, 255, 0.16);
+	border-radius: 28px;
+	backdrop-filter: blur(16px);
+	background: linear-gradient(
+		150deg,
+		rgba(15, 23, 42, 0.74),
+		rgba(17, 24, 39, 0.62)
+	);
+	box-shadow:
+		0 24px 80px rgba(0, 0, 0, 0.55),
+		inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+	padding: 48px 68px;
+	scroll-margin-top: 88px;
+}
+
+.experienceSection h2 {
+	font-size: 1.62rem;
+	margin-bottom: 14px;
+}
+
+.experienceItem {
+	border: 1px solid rgba(148, 163, 184, 0.24);
+	border-radius: 16px;
+	background: rgba(2, 6, 23, 0.46);
+	padding: 14px 15px;
+}
+
+.experienceItem + .experienceItem {
+	margin-top: 10px;
+}
+
+.experiencePeriod {
+	font-size: 0.78rem;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: rgba(125, 211, 252, 0.95);
+}
+
+.experienceItem h3 {
+	margin-top: 5px;
+	font-size: 1rem;
+}
+
+.experienceItem p {
+	margin-top: 6px;
+	font-size: 0.9rem;
+	line-height: 1.55;
+	color: rgba(226, 232, 240, 0.88);
+}
+
+@media (max-width: 840px) {
+	.experienceSection {
+		padding: 36px 28px;
+	}
+}
+
+@media (max-width: 520px) {
+	.experienceSection {
+		padding: 28px 20px;
+		border-radius: 22px;
+	}
+}

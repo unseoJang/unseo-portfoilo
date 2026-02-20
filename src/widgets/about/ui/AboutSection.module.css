@@ -1,0 +1,47 @@
+.heroPanel {
+	position: relative;
+	z-index: 1;
+	width: min(1080px, 100%);
+	margin: 0 auto;
+	border: 1px solid rgba(255, 255, 255, 0.16);
+	border-radius: 28px;
+	backdrop-filter: blur(16px);
+	background: linear-gradient(
+		150deg,
+		rgba(15, 23, 42, 0.74),
+		rgba(17, 24, 39, 0.62)
+	);
+	box-shadow:
+		0 24px 80px rgba(0, 0, 0, 0.55),
+		inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+	padding: 92px 68px;
+}
+
+.mainFrame {
+	display: grid;
+	grid-template-columns: 320px minmax(0, 1fr);
+	gap: 26px;
+	align-items: start;
+}
+
+.contentColumn {
+	min-width: 0;
+}
+
+@media (max-width: 840px) {
+	.heroPanel {
+		width: 100%;
+		padding: 72px 28px;
+	}
+
+	.mainFrame {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 520px) {
+	.heroPanel {
+		padding: 56px 20px;
+		border-radius: 22px;
+	}
+}
