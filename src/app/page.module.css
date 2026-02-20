@@ -1,11 +1,13 @@
 .page {
   position: relative;
   display: flex;
-  min-height: 100vh;
+  height: 100dvh;
+  min-height: 100dvh;
   align-items: flex-start;
   justify-content: flex-start;
   overflow-x: hidden;
-  overflow-y: visible;
+  overflow-y: auto;
+  overscroll-behavior: contain;
   padding: 32px 32px 96px;
   font-family: var(--font-noto-sans-kr), var(--font-geist-sans), Arial, Helvetica,
     sans-serif;

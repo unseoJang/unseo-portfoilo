@@ -14,16 +14,12 @@ html,
 body {
   height: 100%;
   max-width: 100vw;
-  overflow-x: hidden;
-}
-
-html {
-  overflow-y: auto;
+  overflow: hidden;
 }
 
 body {
-  min-height: 100%;
-  overflow-y: hidden;
+  height: 100%;
+  overflow: hidden;
   color: var(--foreground);
   background: var(--background);
   font-family: var(--font-noto-sans-kr), var(--font-geist-sans), Arial,
