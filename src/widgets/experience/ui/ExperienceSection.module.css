@@ -13,9 +13,8 @@
 
 .experienceHeader {
 	display: flex;
-	align-items: flex-start;
-	justify-content: space-between;
-	gap: 12px;
+	flex-direction: column;
+	gap: 3px;
 	margin-bottom: 14px;
 }
 
@@ -30,7 +29,6 @@
 }
 
 .experienceRole {
-	margin-top: 4px;
 	font-size: 0.82rem;
 	color: var(--c-text-faint);
 	transition: color 0.3s ease;
@@ -168,7 +166,6 @@ a.projectCard:hover {
 }
 
 .experienceItem h3 {
-	margin-top: 5px;
 	font-size: 1.4rem;
 	font-weight: 700;
 	letter-spacing: -0.02em;
