@@ -44,22 +44,23 @@ function ExperienceItem({ item }: { item: Experience }) {
 	return (
 		<article className={styles.experienceItem}>
 			<div className={styles.experienceHeader}>
-				<h3>
-					{item.companyUrl ? (
-						<a
-							className={styles.companyLink}
-							href={item.companyUrl}
-							target="_blank"
-							rel="noreferrer noopener"
-						>
-							{item.company}
-						</a>
-					) : (
-						item.company
-					)}
-				</h3>
-				<p className={styles.experiencePeriod}>{item.period}</p>
-
+				<div className={styles.experienceTop}>
+					<h3>
+						{item.companyUrl ? (
+							<a
+								className={styles.companyLink}
+								href={item.companyUrl}
+								target="_blank"
+								rel="noreferrer noopener"
+							>
+								{item.company}
+							</a>
+						) : (
+							item.company
+						)}
+					</h3>
+					<p className={styles.experiencePeriod}>{item.period}</p>
+				</div>
 				<p className={styles.experienceRole}>{item.role}</p>
 			</div>
 

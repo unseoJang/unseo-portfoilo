@@ -18,6 +18,13 @@
 	margin-bottom: 14px;
 }
 
+.experienceTop {
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+	gap: 12px;
+}
+
 .companyLink {
 	color: var(--c-text-strong);
 	text-decoration: none;
