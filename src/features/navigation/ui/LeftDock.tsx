@@ -1,5 +1,5 @@
 import styles from "./LeftDock.module.css";
-import { ThemeToggle } from "./ThemeToggle";
+import { ThemeToggle } from ".";
 
 export function LeftDock() {
   return (

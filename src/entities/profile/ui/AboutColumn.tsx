@@ -1,6 +1,6 @@
 import Image from "next/image"
 import styles from "./AboutColumn.module.css"
-import { CompanyHistoryCard } from "./CompanyHistoryCard"
+import { CompanyHistoryCard } from "."
 
 const CAREER_START_YEAR = 2018;
 const yearsOfExperience = new Date().getFullYear() - CAREER_START_YEAR;
