@@ -9,8 +9,152 @@
 	letter-spacing: 0.1em;
 	text-transform: uppercase;
 	color: var(--c-text-faint);
-	margin-bottom: 14px;
+	margin-bottom: 8px;
 	transition: color 0.3s ease;
+}
+
+.subtitle {
+	margin-bottom: 24px;
+	font-size: 1rem;
+	line-height: 1.6;
+	color: var(--c-text);
+}
+
+.experienceHeader {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 12px;
+	margin-bottom: 14px;
+}
+
+.companyLink {
+	color: var(--c-text-strong);
+	text-decoration: none;
+	transition: color 0.2s ease;
+}
+
+.companyLink:hover {
+	color: var(--c-text-accent);
+}
+
+.experienceRole {
+	margin-top: 4px;
+	font-size: 0.82rem;
+	color: var(--c-text-faint);
+	transition: color 0.3s ease;
+}
+
+.taskList {
+	list-style: none;
+	padding: 0;
+	margin: 0 0 16px;
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.taskList li {
+	padding-left: 14px;
+	position: relative;
+	font-size: 0.9rem;
+	line-height: 1.55;
+	color: var(--c-text);
+	transition: color 0.3s ease;
+}
+
+.taskList li::before {
+	content: "–";
+	position: absolute;
+	left: 0;
+	color: var(--c-text-accent);
+}
+
+.projectListLabel {
+	font-size: 0.75rem;
+	font-weight: 600;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	color: var(--c-text-faint);
+	margin: 20px 0 12px;
+	padding-top: 18px;
+	border-top: 1px solid var(--c-border);
+	transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.projectGrid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 10px;
+}
+
+.projectCard {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	padding: 14px 16px;
+	border-radius: 14px;
+	border: 1px solid var(--c-border);
+	background: var(--c-surface);
+	text-decoration: none;
+	transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+a.projectCard:hover {
+	border-color: var(--c-nav-hover-border);
+	background: var(--c-nav-hover-bg);
+	transform: translateY(-2px);
+}
+
+.projectPeriod {
+	font-size: 0.72rem;
+	letter-spacing: 0.06em;
+	color: var(--c-text-accent);
+	transition: color 0.3s ease;
+}
+
+.projectName {
+	font-size: 0.9rem;
+	font-weight: 600;
+	color: var(--c-text-strong);
+	line-height: 1.4;
+	transition: color 0.3s ease;
+}
+
+.projectClient {
+	font-size: 0.78rem;
+	color: var(--c-text-faint);
+	transition: color 0.3s ease;
+}
+
+.techList {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 5px;
+	list-style: none;
+	padding: 0;
+	margin: 6px 0 0;
+}
+
+.techList li {
+	padding: 2px 8px;
+	border-radius: 999px;
+	border: 1px solid var(--c-border-item);
+	font-size: 0.72rem;
+	color: var(--c-text);
+	transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+@media (max-width: 840px) {
+	.projectGrid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 520px) {
+	.projectGrid {
+		grid-template-columns: 1fr;
+	}
 }
 
 .experienceItem {
