@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Noto_Sans_KR } from "next/font/google";
+import { MSWProvider } from "@/shared/providers/MSWProvider";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -33,7 +34,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${notoSansKr.variable}`}
       >
-        {children}
+        <MSWProvider>{children}</MSWProvider>
       </body>
     </html>
   );
