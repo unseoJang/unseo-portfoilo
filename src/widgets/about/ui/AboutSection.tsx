@@ -1,9 +1,9 @@
 import { AboutColumn } from "@/entities/profile";
 import { ContactSection } from "@/widgets/contact";
 import { ExperienceSection } from "@/widgets/experience";
+import { HeroIntro } from "@/widgets/hero-intro";
 import { ProjectsSection } from "@/widgets/projects";
 import styles from "./AboutSection.module.css";
-import { HeroIntro } from "./HeroIntro";
 
 export function AboutSection() {
 	return (
