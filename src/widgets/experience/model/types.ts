@@ -4,6 +4,8 @@ export type Project = {
 	client: string;
 	tech: string[];
 	url?: string;
+	description?: string;
+	highlights?: string[];
 };
 
 export type Experience = {

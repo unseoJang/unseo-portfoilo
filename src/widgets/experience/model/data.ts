@@ -1,13 +1,101 @@
-import type { Experience } from "./types";
+import type { Experience } from "./types"
 
 export const EXPERIENCES: Experience[] = [
 	{
-		company: "—",
-		period: "2021 — Present",
-		role: "Frontend Engineer",
+		company: "닥프렌즈 / 인사이트플러스",
+		period: "2021.10 — 2025.05",
+		role: "Frontend Developer",
 		tasks: [
-			"핵심 서비스 UI 고도화, 렌더링 성능 개선",
-			"디자인 시스템 기반 화면 개발",
+			"닥톡 의사 전용 사이트 및 전체 관리자 사이트 유지보수",
+			"AI메신저·기관용 문자발송 서비스 개발 및 유지보수",
+			"인싸이트 플러스 B2B·어드민 사이트 구축 및 유지보수",
+			"Vue2→Vue3 점진 전환, TypeScript 도입, CI/CD(GitHub Actions→S3/CloudFront) 구축",
+		],
+		projects: [
+			{
+				name: "닥톡 예약연동",
+				period: "2024.08 — 2025.05",
+				client: "닥프렌즈",
+				tech: ["Vue.js 2·3", "Nuxt.js", "TypeScript", "Pinia", "Vite", "AWS S3·CloudFront"],
+				url: "https://web.doctalk.co.kr/",
+				description: "네이버·당근·카카오·EMR 외부 플랫폼과 환자 데이터를 연동하는 의료기관 예약 플랫폼",
+				highlights: [
+					"플랫폼별 API 응답을 ViewModel로 통합, 신규 연동 수정 범위를 ViewModel 내부로 한정",
+					"Nuxt SSR + useSeo 모듈화로 주요 플로우 메타/OG 표준화",
+					"GitHub Actions → S3/CloudFront FE 단독 배포 파이프라인 구축",
+					"전문가 가입자 1,000 → 1,500 증가",
+				],
+			},
+			{
+				name: "닥톡 전문가 사이트 v5 리뉴얼",
+				period: "2022.10 — 2025.05",
+				client: "닥프렌즈",
+				tech: ["jQuery → Vue3", "TypeScript", "Vite", "socket.io"],
+				url: "https://web.doctalk.co.kr/",
+				description: "레거시(jQuery) 기반 전문가 플랫폼을 점진 전환으로 재구축",
+				highlights: [
+					"페이지 로딩 4.0s → 2.0s 개선 (Lighthouse/GSC 측정 기반)",
+					"체류시간 +20%, 활동량 +25% 개선",
+					"전문가 가입자 800 → 1,000 증가",
+					"공통 UI·폼 검증 표준화로 화면별 구현 편차 축소",
+				],
+			},
+			{
+				name: "인사이트플러스 B2B",
+				period: "2023.04 — 2024.12",
+				client: "인사이트플러스",
+				tech: ["Vue3", "TypeScript", "Vite", "FullCalendar"],
+				url: "https://plus.inpsyt.me/login",
+				description: "B2B 심리상담센터 예약·일정·상담 프로세스를 캘린더 중심으로 통합한 관리 플랫폼",
+				highlights: [
+					"모듈 경계 정의로 기능 확장 시 변경 범위를 특정 모듈로 한정",
+					"FullCalendar 드래그/리사이즈/충돌 처리 규칙 표준화",
+					"화면/도메인 상태 분리로 사이드이펙트 감소",
+				],
+			},
+			{
+				name: "Walden MVP",
+				period: "2024.05 — 2024.12",
+				client: "닥프렌즈",
+				tech: ["React", "TypeScript", "Redux", "Vite", "AWS S3·CloudFront"],
+				description: "심리상담사 대상 교육·커뮤니티·결제 MVP 구축",
+				highlights: [
+					"고객 인터뷰 50여 건으로 MVP 우선순위 정리 후 커뮤니티·결제 포함 베타 출시",
+					"비동기 상태(loading/error/empty/success) 패턴 공통화",
+					"Toss Payments 결제 플로우 상태 전이 정의 및 예외 처리",
+				],
+			},
+			{
+				name: "닥톡 AI마케터 (LMS) 자동문자발송",
+				period: "2022.03 — 2022.04",
+				client: "닥프렌즈",
+				tech: ["Nuxt.js 2.0", "TypeScript", "SCSS"],
+				url: "https://message.doctalk.co.kr/login-page",
+				description: "환자 맞춤형 자동 문자 발송 서비스 (사내 첫 Nuxt.js 프로젝트)",
+				highlights: [
+					"예약문자·직접문자·페이지네이션 중심 서비스 구축",
+				],
+			},
+			{
+				name: "닥톡 기관용 문자발송 서비스",
+				period: "2022.12 — 2023.12",
+				client: "닥프렌즈",
+				tech: ["Vue.js 2", "TypeScript", "Vuex", "AWS S3·CloudFront"],
+				url: "https://skma.doctalk.co.kr/",
+				description: "병원 재방문 안내 자동화를 위한 EMR 기반 문자 리텐션 서비스",
+				highlights: [
+					"발송 조건/주기/대상 관리 UI 구현으로 수동 작업을 설정 기반으로 전환",
+					"발송 성공/실패/재시도/중복 방지를 상태·규칙으로 모델링",
+				],
+			},
+			{
+				name: "인싸이트 플러스 Admin 구축",
+				period: "2023.08.07 — 2023.08.16",
+				client: "인사이트플러스",
+				tech: ["Vue3", "JavaScript", "Bootstrap"],
+				url: "https://admin.inpsyt.me/login",
+				description: "인싸이트 플러스 내부 관리자 사이트 초기 구축",
+			},
 		],
 	},
 	{
@@ -105,4 +193,4 @@ export const EXPERIENCES: Experience[] = [
 			},
 		],
 	},
-];
+]
