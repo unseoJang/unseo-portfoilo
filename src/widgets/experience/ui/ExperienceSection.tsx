@@ -1,9 +1,16 @@
 "use client";
 
+import { useQuery } from "@tanstack/react-query";
 import panel from "@/shared/ui/panel.module.css";
-import { useEffect, useState } from "react";
+import { useExperienceStore } from "../model/store";
 import type { Experience, Project } from "../model/types";
 import styles from "./ExperienceSection.module.css";
+
+async function fetchExperience(): Promise<Experience[]> {
+	const res = await fetch("/api/experience");
+	if (!res.ok) throw new Error("Failed to fetch experience");
+	return res.json();
+}
 
 function ProjectCard({ project }: { project: Project }) {
 	const Tag = project.url ? "a" : "span";
@@ -26,6 +33,11 @@ function ProjectCard({ project }: { project: Project }) {
 }
 
 function ExperienceItem({ item }: { item: Experience }) {
+	const id = item.company + item.period;
+	const { expandedId, toggle } = useExperienceStore();
+	const isExpanded = expandedId === id;
+	const hasProjects = item.projects && item.projects.length > 0;
+
 	return (
 		<article className={styles.experienceItem}>
 			<div className={styles.experienceHeader}>
@@ -53,14 +65,24 @@ function ExperienceItem({ item }: { item: Experience }) {
 				))}
 			</ul>
 
-			{item.projects && item.projects.length > 0 && (
+			{hasProjects && (
 				<>
-					<p className={styles.projectListLabel}>주요 프로젝트</p>
-					<div className={styles.projectGrid}>
-						{item.projects.map((project) => (
-							<ProjectCard key={project.name} project={project} />
-						))}
-					</div>
+					<button
+						className={`${styles.projectToggle} ${isExpanded ? styles.projectToggleOpen : ""}`}
+						onClick={() => toggle(id)}
+						aria-expanded={isExpanded}
+					>
+						주요 프로젝트 {item.projects!.length}건
+						<span className={styles.toggleIcon} aria-hidden>▾</span>
+					</button>
+
+					{isExpanded && (
+						<div className={styles.projectGrid}>
+							{item.projects!.map((project) => (
+								<ProjectCard key={project.name} project={project} />
+							))}
+						</div>
+					)}
 				</>
 			)}
 		</article>
@@ -79,25 +101,10 @@ function ExperienceSkeleton() {
 }
 
 export function ExperienceSection() {
-	const [experiences, setExperiences] = useState<Experience[]>([]);
-	const [loading, setLoading] = useState(true);
-	const [error, setError] = useState<string | null>(null);
-
-	useEffect(() => {
-		fetch("/api/experience")
-			.then((res) => {
-				if (!res.ok) throw new Error("Failed to fetch");
-				return res.json();
-			})
-			.then((data: Experience[]) => {
-				setExperiences(data);
-				setLoading(false);
-			})
-			.catch(() => {
-				setError("데이터를 불러오지 못했습니다.");
-				setLoading(false);
-			});
-	}, []);
+	const { data: experiences, isLoading, isError } = useQuery({
+		queryKey: ["experience"],
+		queryFn: fetchExperience,
+	});
 
 	return (
 		<section className={panel.heroPanel} id="section-experience">
@@ -107,13 +114,13 @@ export function ExperienceSection() {
 				사용하든 빠르고 안정적인 웹 제품을 개발합니다.
 			</p>
 
-			{loading && <ExperienceSkeleton />}
-			{error && <p className={styles.errorMsg}>{error}</p>}
-			{!loading &&
-				!error &&
-				experiences.map((item) => (
-					<ExperienceItem key={item.company + item.period} item={item} />
-				))}
+			{isLoading && <ExperienceSkeleton />}
+			{isError && (
+				<p className={styles.errorMsg}>데이터를 불러오지 못했습니다.</p>
+			)}
+			{experiences?.map((item) => (
+				<ExperienceItem key={item.company + item.period} item={item} />
+			))}
 		</section>
 	);
 }

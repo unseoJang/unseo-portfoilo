@@ -191,6 +191,37 @@ a.projectCard:hover {
 	transition: color 0.3s ease;
 }
 
+/* ── Project Toggle ── */
+.projectToggle {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	margin-top: 16px;
+	padding: 7px 14px;
+	border-radius: 999px;
+	border: 1px solid var(--c-border-item);
+	background: var(--c-surface-raised);
+	font-size: 0.82rem;
+	font-weight: 600;
+	color: var(--c-text);
+	transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.projectToggle:hover {
+	border-color: var(--c-nav-hover-border);
+	background: var(--c-nav-hover-bg);
+	color: var(--c-text-accent);
+}
+
+.toggleIcon {
+	display: inline-block;
+	transition: transform 0.25s ease;
+}
+
+.projectToggleOpen .toggleIcon {
+	transform: rotate(180deg);
+}
+
 /* ── Skeleton ── */
 @keyframes shimmer {
 	0% { background-position: -400px 0; }
