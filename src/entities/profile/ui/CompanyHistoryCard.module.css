@@ -1,14 +1,16 @@
 .infoCard {
-  border: 1px solid rgba(148, 163, 184, 0.24);
+  border: 1px solid var(--c-border);
   border-radius: 16px;
-  background: rgba(2, 6, 23, 0.48);
+  background: var(--c-surface);
   padding: 14px;
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 .infoCard h2 {
   font-size: 1.2rem;
   margin-bottom: 8px;
-  color: rgba(125, 211, 252, 0.95);
+  color: var(--c-text-accent);
+  transition: color 0.3s ease;
 }
 
 .companyList {
@@ -20,11 +22,12 @@
 }
 
 .companyItem {
-  border: 1px solid rgba(148, 163, 184, 0.26);
+  border: 1px solid var(--c-border-item);
   border-radius: 12px;
   padding: 11px 11px 10px;
-  background: rgba(15, 23, 42, 0.44);
+  background: var(--c-surface-item);
   outline: none;
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 .companyTop {
@@ -37,6 +40,7 @@
 .companyHead {
   min-width: 0;
   font-size: 0.86rem;
+  color: var(--c-text);
 }
 
 .companyHead strong {
@@ -50,8 +54,8 @@
   border-radius: 999px;
   padding: 4px 8px;
   font-size: 0.72rem;
-  color: rgba(186, 230, 253, 0.95);
-  background: rgba(30, 41, 59, 0.62);
+  color: var(--c-text-heading);
+  background: var(--c-surface-raised);
 }
 
 .companyMeta {
@@ -59,7 +63,7 @@
   font-size: 0.75rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: rgba(148, 163, 184, 0.92);
+  color: var(--c-text-faint);
 }
 
 .companyDetail {
@@ -68,6 +72,9 @@
   overflow: hidden;
   opacity: 0;
   transform: translateY(-4px);
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--c-text);
   transition:
     max-height 0.26s ease,
     opacity 0.22s ease,

@@ -1,13 +1,69 @@
+/* ── Dark (default) ─────────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --c-surface:          rgba(2, 6, 23, 0.48);
+  --c-surface-raised:   rgba(15, 23, 42, 0.5);
+  --c-surface-item:     rgba(15, 23, 42, 0.44);
+
+  --c-panel-bg:         linear-gradient(150deg, rgba(15, 23, 42, 0.74), rgba(17, 24, 39, 0.62));
+  --c-panel-border:     rgba(255, 255, 255, 0.16);
+  --c-panel-shadow:     0 24px 80px rgba(0, 0, 0, 0.55),
+                        inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+
+  --c-border:           rgba(148, 163, 184, 0.24);
+  --c-border-item:      rgba(148, 163, 184, 0.26);
+
+  --c-sidebar-bg:       rgba(2, 6, 23, 0.82);
+  --c-sidebar-border:   rgba(148, 163, 184, 0.2);
+  --c-nav-bg:           rgba(15, 23, 42, 0.5);
+  --c-nav-border:       rgba(148, 163, 184, 0.26);
+  --c-nav-hover-bg:     rgba(30, 41, 59, 0.8);
+  --c-nav-hover-border: rgba(125, 211, 252, 0.45);
+
+  --c-ql-bg:            rgba(2, 6, 23, 0.76);
+  --c-ql-border:        rgba(148, 163, 184, 0.35);
+  --c-ql-hover-bg:      rgba(30, 41, 59, 0.8);
+  --c-ql-hover-border:  rgba(125, 211, 252, 0.45);
+
+  --c-text:             rgba(226, 232, 240, 0.9);
+  --c-text-muted:       rgba(203, 213, 225, 0.82);
+  --c-text-faint:       rgba(148, 163, 184, 0.92);
+  --c-text-accent:      rgba(125, 211, 252, 0.95);
+  --c-text-heading:     rgba(186, 230, 253, 0.95);
+  --c-text-strong:      rgba(241, 245, 249, 0.95);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ── Light ──────────────────────────────────────── */
+[data-theme="light"] {
+  --c-surface:          rgba(255, 255, 255, 0.78);
+  --c-surface-raised:   rgba(248, 250, 252, 0.88);
+  --c-surface-item:     rgba(241, 245, 249, 0.82);
+
+  --c-panel-bg:         linear-gradient(150deg, rgba(255, 255, 255, 0.86), rgba(241, 245, 249, 0.76));
+  --c-panel-border:     rgba(15, 23, 42, 0.1);
+  --c-panel-shadow:     0 24px 80px rgba(15, 23, 42, 0.1),
+                        inset 0 0 0 1px rgba(15, 23, 42, 0.06);
+
+  --c-border:           rgba(15, 23, 42, 0.12);
+  --c-border-item:      rgba(15, 23, 42, 0.14);
+
+  --c-sidebar-bg:       rgba(248, 250, 252, 0.94);
+  --c-sidebar-border:   rgba(15, 23, 42, 0.1);
+  --c-nav-bg:           rgba(241, 245, 249, 0.72);
+  --c-nav-border:       rgba(15, 23, 42, 0.14);
+  --c-nav-hover-bg:     rgba(226, 232, 240, 0.9);
+  --c-nav-hover-border: rgba(6, 182, 212, 0.5);
+
+  --c-ql-bg:            rgba(248, 250, 252, 0.9);
+  --c-ql-border:        rgba(15, 23, 42, 0.15);
+  --c-ql-hover-bg:      rgba(226, 232, 240, 0.95);
+  --c-ql-hover-border:  rgba(6, 182, 212, 0.5);
+
+  --c-text:             rgba(15, 23, 42, 0.85);
+  --c-text-muted:       rgba(30, 41, 59, 0.75);
+  --c-text-faint:       rgba(71, 85, 105, 0.9);
+  --c-text-accent:      rgba(6, 182, 212, 0.95);
+  --c-text-heading:     rgba(8, 145, 178, 0.92);
+  --c-text-strong:      rgba(15, 23, 42, 0.95);
 }
 
 html,
@@ -20,8 +76,7 @@ body {
 body {
   height: 100%;
   overflow: hidden;
-  color: var(--foreground);
-  background: var(--background);
+  color: var(--c-text);
   font-family: var(--font-noto-sans-kr), var(--font-geist-sans), Arial,
     Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -37,10 +92,4 @@ body {
 a {
   color: inherit;
   text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
 }

@@ -8,15 +8,17 @@
 	font-weight: 600;
 	letter-spacing: 0.1em;
 	text-transform: uppercase;
-	color: rgba(148, 163, 184, 0.8);
+	color: var(--c-text-faint);
 	margin-bottom: 14px;
+	transition: color 0.3s ease;
 }
 
 .experienceItem {
-	border: 1px solid rgba(148, 163, 184, 0.24);
+	border: 1px solid var(--c-border);
 	border-radius: 16px;
-	background: rgba(2, 6, 23, 0.46);
+	background: var(--c-surface);
 	padding: 14px 15px;
+	transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 .experienceItem + .experienceItem {
@@ -27,17 +29,20 @@
 	font-size: 0.78rem;
 	letter-spacing: 0.06em;
 	text-transform: uppercase;
-	color: rgba(125, 211, 252, 0.95);
+	color: var(--c-text-accent);
+	transition: color 0.3s ease;
 }
 
 .experienceItem h3 {
 	margin-top: 5px;
 	font-size: 1rem;
+	color: var(--c-text-strong);
 }
 
 .experienceItem p {
 	margin-top: 6px;
 	font-size: 0.9rem;
 	line-height: 1.55;
-	color: rgba(226, 232, 240, 0.88);
+	color: var(--c-text);
+	transition: color 0.3s ease;
 }

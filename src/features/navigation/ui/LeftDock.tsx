@@ -1,4 +1,5 @@
 import styles from "./LeftDock.module.css";
+import { ThemeToggle } from "./ThemeToggle";
 
 export function LeftDock() {
   return (
@@ -12,6 +13,9 @@ export function LeftDock() {
           <a href="#section-projects">Projects</a>
           <a href="#section-contact">Contact</a>
         </nav>
+        <div className={styles.leftDockActions}>
+          <ThemeToggle />
+        </div>
       </div>
       <p className={styles.leftDockCopyright}>
         copyright © 2026 UNSEO JANG.

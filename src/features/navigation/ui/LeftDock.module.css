@@ -7,11 +7,12 @@
   flex-direction: column;
   z-index: 11;
   width: 208px;
-  border-right: 1px solid rgba(148, 163, 184, 0.2);
-  background: rgba(2, 6, 23, 0.82);
+  border-right: 1px solid var(--c-sidebar-border);
+  background: var(--c-sidebar-bg);
   backdrop-filter: blur(12px);
   padding: 34px 14px 16px;
   overflow: hidden;
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 .leftDockTop {
@@ -21,12 +22,13 @@
 .leftDockName {
   font-size: 1.2rem;
   font-weight: 700;
+  color: var(--c-text-strong);
 }
 
 .leftDockRole {
   margin-top: 4px;
   font-size: 0.78rem;
-  color: rgba(203, 213, 225, 0.82);
+  color: var(--c-text-muted);
 }
 
 .leftDockNav {
@@ -36,26 +38,30 @@
 }
 
 .leftDockNav a {
-  border: 1px solid rgba(148, 163, 184, 0.26);
+  border: 1px solid var(--c-nav-border);
   border-radius: 10px;
-  background: rgba(15, 23, 42, 0.5);
+  background: var(--c-nav-bg);
   padding: 8px 10px;
   font-size: 0.82rem;
-  color: rgba(226, 232, 240, 0.92);
-  transition: background 0.2s ease, border-color 0.2s ease;
+  color: var(--c-text);
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.3s ease;
+}
+
+.leftDockActions {
+  margin-top: 14px;
 }
 
 .leftDockCopyright {
   margin-top: auto;
   font-size: 0.67rem;
   line-height: 1.45;
-  color: rgba(203, 213, 225, 0.74);
+  color: var(--c-text-muted);
 }
 
 @media (hover: hover) and (pointer: fine) {
   .leftDockNav a:hover {
-    border-color: rgba(125, 211, 252, 0.45);
-    background: rgba(30, 41, 59, 0.8);
+    border-color: var(--c-nav-hover-border);
+    background: var(--c-nav-hover-bg);
   }
 }
 

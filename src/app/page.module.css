@@ -11,11 +11,20 @@
   padding: 32px 32px 96px;
   font-family: var(--font-noto-sans-kr), var(--font-geist-sans), Arial, Helvetica,
     sans-serif;
-  color: #f8fafc;
+  color: var(--c-text);
   background:
     radial-gradient(circle at 20% 10%, #1d4ed8 0%, rgba(29, 78, 216, 0) 40%),
     radial-gradient(circle at 80% 0%, #9333ea 0%, rgba(147, 51, 234, 0) 45%),
     linear-gradient(135deg, #0b1224, #111827 45%, #030712);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+[data-theme="light"] .page {
+  color: var(--c-text);
+  background:
+    radial-gradient(circle at 20% 10%, #bae6fd 0%, rgba(186, 230, 253, 0) 45%),
+    radial-gradient(circle at 80% 0%, #e9d5ff 0%, rgba(233, 213, 255, 0) 45%),
+    linear-gradient(135deg, #f0f9ff, #f8fafc 50%, #eff6ff);
 }
 
 .page::before {

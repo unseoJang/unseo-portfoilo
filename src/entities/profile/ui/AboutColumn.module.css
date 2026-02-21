@@ -3,15 +3,12 @@
   gap: 12px;
 }
 
-.anchorSection {
-  scroll-margin-top: 88px;
-}
-
 .sideSectionTitle {
   font-size: 2.8rem;
   font-weight: 700;
   letter-spacing: -0.03em;
-  color: rgba(186, 230, 253, 0.95);
+  color: var(--c-text-heading);
+  transition: color 0.3s ease;
 }
 
 .careerBadge {
@@ -22,16 +19,17 @@
   background: rgba(125, 211, 252, 0.08);
   font-size: 0.8rem;
   font-weight: 500;
-  color: rgba(186, 230, 253, 0.9);
+  color: var(--c-text-heading);
   letter-spacing: 0.02em;
 }
 
 .photoFrame {
   border-radius: 20px;
-  border: 1px solid rgba(148, 163, 184, 0.26);
+  border: 1px solid var(--c-border-item);
   overflow: hidden;
-  background: rgba(2, 6, 23, 0.5);
+  background: var(--c-surface);
   box-shadow: 0 16px 36px rgba(2, 6, 23, 0.45);
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 .profilePhoto {
@@ -43,23 +41,26 @@
 }
 
 .infoCard {
-  border: 1px solid rgba(148, 163, 184, 0.24);
+  border: 1px solid var(--c-border);
   border-radius: 16px;
-  background: rgba(2, 6, 23, 0.48);
+  background: var(--c-surface);
   padding: 14px;
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 .infoCard h2 {
   font-size: 1.2rem;
   margin-bottom: 8px;
-  color: rgba(125, 211, 252, 0.95);
+  color: var(--c-text-accent);
+  transition: color 0.3s ease;
 }
 
 .infoCard p,
 .infoCard a {
   font-size: 0.9rem;
   line-height: 1.6;
-  color: rgba(226, 232, 240, 0.9);
+  color: var(--c-text);
+  transition: color 0.3s ease;
 }
 
 .principleList {
@@ -75,7 +76,7 @@
   gap: 8px;
   font-size: 0.88rem;
   line-height: 1.55;
-  color: rgba(226, 232, 240, 0.9);
+  color: var(--c-text);
 }
 
 .principleList li::before {
@@ -83,11 +84,11 @@
   flex-shrink: 0;
   margin-top: 1px;
   font-size: 0.6rem;
-  color: rgba(125, 211, 252, 0.8);
+  color: var(--c-text-accent);
 }
 
 @media (hover: hover) and (pointer: fine) {
   .infoCard a:hover {
-    color: #bae6fd;
+    color: var(--c-text-heading);
   }
 }

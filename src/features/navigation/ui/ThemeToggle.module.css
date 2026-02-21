@@ -1,0 +1,33 @@
+.toggle {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 36px;
+	height: 36px;
+	border-radius: 10px;
+	border: 1px solid var(--c-nav-border);
+	background: var(--c-nav-bg);
+	cursor: pointer;
+	font-size: 1rem;
+	transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+/* dark 모드에서는 달 아이콘 표시, light에서는 숨김 */
+.iconLight {
+	display: none;
+}
+
+[data-theme="light"] .iconDark {
+	display: none;
+}
+
+[data-theme="light"] .iconLight {
+	display: inline;
+}
+
+@media (hover: hover) and (pointer: fine) {
+	.toggle:hover {
+		border-color: var(--c-nav-hover-border);
+		background: var(--c-nav-hover-bg);
+	}
+}
