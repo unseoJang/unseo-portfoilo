@@ -2,6 +2,7 @@
 
 import { useQuery } from "@tanstack/react-query";
 import panel from "@/shared/ui/panel.module.css";
+import typo from "@/shared/ui/typography.module.css";
 import { experienceKeys } from "../model/queryKeys";
 import { useExperienceStore } from "../model/store";
 import type { Experience, Project } from "../model/types";
@@ -109,7 +110,7 @@ export function ExperienceSection() {
 
 	return (
 		<section className={panel.heroPanel} id="section-experience">
-			<h2 className={styles.sectionTitle}>Experience</h2>
+			<h2 className={typo.sectionTitle}>Experience</h2>
 			<p className={styles.subtitle}>
 				사용자의 행동 맥락을 중심으로 인터페이스를 설계하고, 어떠한 프레임워크를
 				사용하든 빠르고 안정적인 웹 제품을 개발합니다.

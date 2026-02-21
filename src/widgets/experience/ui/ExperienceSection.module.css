@@ -3,15 +3,6 @@
 	scroll-margin-top: 88px;
 }
 
-.experienceSection h2 {
-	font-size: 0.92rem;
-	font-weight: 600;
-	letter-spacing: 0.1em;
-	text-transform: uppercase;
-	color: var(--c-text-faint);
-	margin-bottom: 8px;
-	transition: color 0.3s ease;
-}
 
 .subtitle {
 	margin-bottom: 24px;
