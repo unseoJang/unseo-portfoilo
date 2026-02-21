@@ -1,9 +1,6 @@
 import { AboutColumn } from "@/entities/profile";
 import styles from "./AboutSection.module.css";
-import { ContactSection } from "./ContactSection";
-import { ExperienceSection } from "./ExperienceSection";
-import { HeroIntro } from "./HeroIntro";
-import { ProjectsSection } from "./ProjectsSection";
+import { ContactSection, ExperienceSection, HeroIntro, ProjectsSection } from ".";
 
 export function AboutSection() {
 	return (
