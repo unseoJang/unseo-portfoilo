@@ -1,6 +1,7 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
+import { API_ENDPOINTS } from "@/shared/api/endpoints";
 import panel from "@/shared/ui/panel.module.css";
 import typo from "@/shared/ui/typography.module.css";
 import { experienceKeys } from "../model/queryKeys";
@@ -9,7 +10,7 @@ import type { Experience, Project } from "../model/types";
 import styles from "./ExperienceSection.module.css";
 
 async function fetchExperience(): Promise<Experience[]> {
-	const res = await fetch("/api/experience");
+	const res = await fetch(API_ENDPOINTS.experience);
 	if (!res.ok) throw new Error("Failed to fetch experience");
 	return res.json();
 }
