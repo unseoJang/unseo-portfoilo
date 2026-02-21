@@ -1,8 +1,9 @@
+import panel from "@/shared/ui/panel.module.css";
 import styles from "./ExperienceSection.module.css"
 
 export function ExperienceSection() {
 	return (
-		<section className={styles.experienceSection}>
+		<section className={panel.heroPanel} id="section-experience">
 			<h2>Experience</h2>
 			<article className={styles.experienceItem}>
 				<p className={styles.experiencePeriod}>2021 - Present</p>
