@@ -2,6 +2,7 @@
 
 import { useQuery } from "@tanstack/react-query";
 import panel from "@/shared/ui/panel.module.css";
+import { experienceKeys } from "../model/queryKeys";
 import { useExperienceStore } from "../model/store";
 import type { Experience, Project } from "../model/types";
 import styles from "./ExperienceSection.module.css";
@@ -102,7 +103,7 @@ function ExperienceSkeleton() {
 
 export function ExperienceSection() {
 	const { data: experiences, isLoading, isError } = useQuery({
-		queryKey: ["experience"],
+		queryKey: experienceKeys.list(),
 		queryFn: fetchExperience,
 	});
 
