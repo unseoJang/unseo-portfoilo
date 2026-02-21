@@ -8,8 +8,8 @@ type LoadingGateProps = {
 };
 
 export function LoadingGate({ children }: LoadingGateProps) {
-  const [isVisible, setIsVisible] = useState(true);
   const [isExiting, setIsExiting] = useState(false);
+  const [isHidden, setIsHidden] = useState(false);
 
   useEffect(() => {
     const minimumShowMs = 3000;
@@ -20,8 +20,7 @@ export function LoadingGate({ children }: LoadingGateProps) {
     }, minimumShowMs);
 
     const hide = window.setTimeout(() => {
-      setIsVisible(false);
-      setIsExiting(false);
+      setIsHidden(true);
     }, minimumShowMs + exitDurationMs);
 
     return () => {
@@ -30,26 +29,27 @@ export function LoadingGate({ children }: LoadingGateProps) {
     };
   }, []);
 
-  if (isVisible) {
-    return (
-      <div
-        className={`${loadingStyles.loadingScreen} ${
-          isExiting ? loadingStyles.loadingExit : ""
-        }`}
-        role="status"
-        aria-live="polite"
-      >
-        <div className={loadingStyles.glow} aria-hidden />
-        <div className={loadingStyles.content}>
-          <p className={loadingStyles.name}>unseo</p>
-          <h1 className={loadingStyles.title}>Portfolio</h1>
-          <p className={`${loadingStyles.caption} ${loadingStyles.korean}`}>
-            포트폴리오를 준비하고 있습니다...
-          </p>
+  return (
+    <>
+      {children}
+      {!isHidden && (
+        <div
+          className={`${loadingStyles.loadingScreen} ${
+            isExiting ? loadingStyles.loadingExit : ""
+          }`}
+          role="status"
+          aria-live="polite"
+        >
+          <div className={loadingStyles.glow} aria-hidden />
+          <div className={loadingStyles.content}>
+            <p className={loadingStyles.name}>unseo</p>
+            <h1 className={loadingStyles.title}>Portfolio</h1>
+            <p className={`${loadingStyles.caption} ${loadingStyles.korean}`}>
+              포트폴리오를 준비하고 있습니다...
+            </p>
+          </div>
         </div>
-      </div>
-    );
-  }
-
-  return <>{children}</>;
+      )}
+    </>
+  );
 }
