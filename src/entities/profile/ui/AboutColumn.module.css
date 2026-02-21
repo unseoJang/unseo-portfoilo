@@ -14,6 +14,18 @@
   color: rgba(186, 230, 253, 0.95);
 }
 
+.careerBadge {
+  width: fit-content;
+  padding: 5px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(125, 211, 252, 0.35);
+  background: rgba(125, 211, 252, 0.08);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: rgba(186, 230, 253, 0.9);
+  letter-spacing: 0.02em;
+}
+
 .photoFrame {
   border-radius: 20px;
   border: 1px solid rgba(148, 163, 184, 0.26);

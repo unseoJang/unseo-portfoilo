@@ -2,10 +2,16 @@ import Image from "next/image"
 import styles from "./AboutColumn.module.css"
 import { CompanyHistoryCard } from "./CompanyHistoryCard"
 
+const CAREER_START_YEAR = 2018;
+const yearsOfExperience = new Date().getFullYear() - CAREER_START_YEAR;
+
 export function AboutColumn() {
 	return (
 		<div className={styles.profileColumn}>
 			<h2 className={styles.sideSectionTitle}>About</h2>
+			<p className={styles.careerBadge}>
+				{yearsOfExperience}년차 프론트엔드 개발자
+			</p>
 			<figure className={styles.photoFrame}>
 				<Image
 					className={styles.profilePhoto}
