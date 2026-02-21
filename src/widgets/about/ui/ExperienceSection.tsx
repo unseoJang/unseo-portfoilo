@@ -1,6 +1,6 @@
 import styles from "./ExperienceSection.module.css"
 
-export function ExperienceSection() {
+export function Experience() {
 	return (
 		<section className={styles.experienceSection}>
 			<h2>Experience</h2>

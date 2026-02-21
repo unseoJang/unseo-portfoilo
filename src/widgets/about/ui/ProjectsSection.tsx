@@ -1,6 +1,6 @@
 import styles from "./ProjectsSection.module.css";
 
-export function ProjectsSection() {
+export function Projects() {
 	return (
 		<section className={styles.projectsSection}>
 			<h2>Selected Projects</h2>
