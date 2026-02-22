@@ -27,12 +27,49 @@
 	color: var(--c-text-accent);
 }
 
-.slide {
+.slideWrapper {
 	flex: 1;
 	min-width: 0;
+	overflow-x: hidden; /* 슬라이드 애니메이션 수평 clip만 유지 */
+	padding: 4px 6px;   /* hover translateY / shadow 잘림 방지 */
+	margin: -4px -6px;
+}
+
+.slideCards {
 	display: flex;
 	flex-direction: column;
-	gap: 14px;
+	gap: 12px;
+	margin-bottom: 16px;
+}
+
+@keyframes slideInRight {
+	from {
+		transform: translateX(48px);
+		opacity: 0;
+	}
+	to {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+
+@keyframes slideInLeft {
+	from {
+		transform: translateX(-48px);
+		opacity: 0;
+	}
+	to {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+
+.fromRight {
+	animation: slideInRight 0.3s ease;
+}
+
+.fromLeft {
+	animation: slideInLeft 0.3s ease;
 }
 
 .dots {

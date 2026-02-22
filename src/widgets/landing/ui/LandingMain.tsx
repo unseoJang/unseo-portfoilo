@@ -4,6 +4,7 @@ import { ExperienceSection } from "@/widgets/experience"
 import { ProjectsSection } from "@/widgets/projects"
 import { RetrospectiveSection } from "@/widgets/retrospective"
 import styles from "./LandingMain.module.css"
+import { ActivitySection } from "@/widgets/activity/ui/ActivitySection"
 
 export function LandingMain() {
 	return (
@@ -15,7 +16,8 @@ export function LandingMain() {
 					<AboutSection />
 					<ExperienceSection />
 					<ProjectsSection />
-					<RetrospectiveSection />
+					<ActivitySection />
+					{/* <RetrospectiveSection /> */}
 				</div>
 			</main>
 

@@ -1,13 +1,13 @@
-import { useExperienceStore } from "../model/store";
-import type { Experience } from "../model/types";
-import { ProjectCard } from "./ProjectCard";
-import styles from "./ExperienceItem.module.css";
+import { useExperienceStore } from "../model/store"
+import type { Experience } from "../model/types"
+import { ProjectCard } from "./ProjectCard"
+import styles from "./ExperienceItem.module.css"
 
 export function ExperienceItem({ item }: { item: Experience }) {
-	const id = item.company + item.period;
-	const { expandedId, toggle } = useExperienceStore();
-	const isExpanded = expandedId === id;
-	const hasProjects = item.projects && item.projects.length > 0;
+	const id = item.company + item.period
+	const { expandedId, toggle } = useExperienceStore()
+	const isExpanded = expandedId === id
+	const hasProjects = item.projects && item.projects.length > 0
 
 	return (
 		<article className={styles.experienceItem}>
@@ -61,5 +61,5 @@ export function ExperienceItem({ item }: { item: Experience }) {
 				</>
 			)}
 		</article>
-	);
+	)
 }

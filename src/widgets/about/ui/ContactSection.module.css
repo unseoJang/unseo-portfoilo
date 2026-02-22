@@ -49,6 +49,7 @@ a.primary {
 	color: #0b1224;
 	background: linear-gradient(90deg, #67e8f9, #a78bfa, #f472b6);
 	box-shadow: 0 10px 26px rgba(167, 139, 250, 0.34);
+	border:none;
 }
 
 a.secondary {

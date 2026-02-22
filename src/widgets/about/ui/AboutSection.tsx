@@ -1,7 +1,7 @@
-import { AboutColumn } from "@/entities/profile";
-import panel from "@/shared/ui/panel.module.css";
-import styles from "./AboutSection.module.css";
-import { ContactSection, HeroIntro } from ".";
+import { AboutColumn } from "@/entities/profile"
+import panel from "@/shared/ui/panel.module.css"
+import styles from "./AboutSection.module.css"
+import { ContactSection, HeroIntro, TechStack } from "."
 
 export function AboutSection() {
 	return (
@@ -9,10 +9,11 @@ export function AboutSection() {
 			<div className={styles.mainFrame}>
 				<AboutColumn />
 				<div className={styles.contentColumn}>
-				<HeroIntro />
-				<ContactSection />
+					<HeroIntro />
+					<TechStack />
+					<ContactSection />
 				</div>
 			</div>
 		</section>
-	);
+	)
 }

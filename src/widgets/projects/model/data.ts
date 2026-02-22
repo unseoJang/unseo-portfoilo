@@ -13,6 +13,7 @@ export const PROJECTS: PersonalProject[] = [
 		],
 		tech: ["Next.js", "TypeScript", "React Query", "MSW", "CSS Modules"],
 		url: "https://github.com/unseoJang/unseo-portfoilo",
+		imageUrl: "/now-protfolio.png",
 	},
 	{
 		name: "한입 챌린지 — Next.js 스터디",

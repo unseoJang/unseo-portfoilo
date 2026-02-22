@@ -1,17 +1,38 @@
 "use client"
 
+import { useState } from "react"
 import { useProjectsPager } from "../model/useProjectsPager"
 import { ProjectCard } from "./ProjectCard"
 import styles from "./ProjectsCarousel.module.css"
 
 export function ProjectsCarousel() {
 	const { page, setPage, prev, next, visible, totalPages } = useProjectsPager()
+	const [direction, setDirection] = useState<"right" | "left">("right")
+	const [animKey, setAnimKey] = useState(0)
+
+	const handlePrev = () => {
+		setDirection("left")
+		setAnimKey((k) => k + 1)
+		prev()
+	}
+
+	const handleNext = () => {
+		setDirection("right")
+		setAnimKey((k) => k + 1)
+		next()
+	}
+
+	const handleDot = (i: number) => {
+		setDirection(i > page ? "right" : "left")
+		setAnimKey((k) => k + 1)
+		setPage(i)
+	}
 
 	return (
 		<div className={styles.carousel}>
 			<button
 				className={styles.navBtn}
-				onClick={prev}
+				onClick={handlePrev}
 				aria-label="이전 프로젝트"
 			>
 				<svg
@@ -31,16 +52,23 @@ export function ProjectsCarousel() {
 				</svg>
 			</button>
 
-			<div className={styles.slide}>
-				{visible.map((project) => (
-					<ProjectCard key={project.name} project={project} />
-				))}
+			<div className={styles.slideWrapper}>
+				<div
+					key={animKey}
+					className={`${styles.slideCards} ${
+						direction === "right" ? styles.fromRight : styles.fromLeft
+					}`}
+				>
+					{visible.map((project) => (
+						<ProjectCard key={project.name} project={project} />
+					))}
+				</div>
 				<div className={styles.dots}>
 					{Array.from({ length: totalPages }).map((_, i) => (
 						<button
 							key={i}
 							className={`${styles.dot} ${i === page ? styles.dotActive : ""}`}
-							onClick={() => setPage(i)}
+							onClick={() => handleDot(i)}
 							aria-label={`${i + 1}페이지로 이동`}
 						/>
 					))}
@@ -49,7 +77,7 @@ export function ProjectsCarousel() {
 
 			<button
 				className={styles.navBtn}
-				onClick={next}
+				onClick={handleNext}
 				aria-label="다음 프로젝트"
 			>
 				<svg
