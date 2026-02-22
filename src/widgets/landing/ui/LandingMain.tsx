@@ -2,7 +2,6 @@ import { LeftDock, QuickLinks } from "@/features/navigation"
 import { AboutSection } from "@/widgets/about"
 import { ExperienceSection } from "@/widgets/experience"
 import { ProjectsSection } from "@/widgets/projects"
-import { RetrospectiveSection } from "@/widgets/retrospective"
 import styles from "./LandingMain.module.css"
 import { ActivitySection } from "@/widgets/activity/ui/ActivitySection"
 
