@@ -115,6 +115,27 @@ src/
     │   │   └── index.ts
     │   └── index.ts
     │
+    ├── projects/
+    │   ├── model/
+    │   │   ├── data.ts                 # 7개 개인 프로젝트 데이터 (최신순)
+    │   │   ├── types.ts                # PersonalProject 타입
+    │   │   └── useProjectsPager.ts     # 페이지네이션 커스텀 훅 (3개/페이지)
+    │   ├── ui/
+    │   │   ├── ProjectsSection.tsx     # 섹션 래퍼 (h2 + 설명 + Carousel)
+    │   │   ├── ProjectsSection.module.css
+    │   │   ├── ProjectsCarousel.tsx    # 캐러셀 (‹ › 버튼 + dot 인디케이터)
+    │   │   ├── ProjectsCarousel.module.css
+    │   │   ├── ProjectCard.tsx         # 카드 조합 (Thumbnail + Body + Links)
+    │   │   ├── ProjectCard.module.css
+    │   │   ├── ProjectThumbnail.tsx    # 썸네일 + 돋보기 인터랙션
+    │   │   ├── ProjectThumbnail.module.css
+    │   │   ├── ProjectCardBody.tsx     # 카드 본문 (기간/제목/설명/기술 스택)
+    │   │   ├── ProjectCardBody.module.css
+    │   │   ├── ProjectCardLinks.tsx    # 데모/바로가기 링크 버튼
+    │   │   ├── ProjectCardLinks.module.css
+    │   │   └── index.ts
+    │   └── index.ts
+    │
     └── landing/
         ├── ui/
         │   ├── LandingMain.tsx         # 전체 페이지 조합 루트
@@ -131,14 +152,24 @@ src/
 - **우측 하단 Quick Links**: LinkedIn, Blog, GitHub, 이력서 (SVG 아이콘)
 - **About 섹션**: 프로필 사진, 자기소개, 회사 이력 hover 상세, 블로그 링크
 - **Experience 섹션**: 회사별 경험 카드, 프로젝트 아코디언 토글
+- **Projects 섹션**: 개인 프로젝트 썸네일 카드 캐러셀 (3개/페이지)
 
 ### Experience 데이터 / 상태 관리
-- **MSW**: `GET /api/experience` 모킹 (600ms 인위적 딜레이)
+- **Next.js API Route**: `GET /api/experience` — MSW 대신 실서버 라우트로 데이터 제공
+- **MSW**: 개발 환경 전용 모킹 (600ms 인위적 딜레이)
 - **TanStack Query**: `useQuery`로 데이터 페칭, 캐싱, 로딩/에러 상태 관리
 - **Zustand**: 프로젝트 목록 아코디언 열림/닫힘 UI 상태
 - **shimmer 스켈레톤**: 로딩 중 placeholder 애니메이션
 - **ProjectCard**: 로고(favicon), 설명, 하이라이트, 기술 스택 태그 표시
 - **닫힌 사이트 처리**: 인사이트플러스 프로젝트 — 링크/로고 없이 `cursor: default` 카드
+
+### Projects 섹션
+- **캐러셀 슬라이드**: 3개 단위 페이지 전환 (‹ › SVG 버튼 + dot 인디케이터)
+- **썸네일 지원**: YouTube 썸네일 URL, GIF, 정적 이미지 모두 지원
+- **돋보기 인터랙션**: 마우스 위치 기반 2.5× 확대 렌즈 (DOM ref 직접 조작, GIF 재시작 없음)
+- **우아한 폴백**: 이미지 없거나 오류 시 SVG 코드(`< / >`) 아이콘 스켈레톤
+- **7개 프로젝트**: 2016~2026 작업물 최신순 정렬
+- **다중 데모 링크**: `demoUrls[]` 배열로 YouTube 영상 여러 개 지원
 
 ### 아키텍처
 - FSD 5-레이어 구조 (`shared` → `entities` → `features` → `widgets` → `app`)
@@ -161,7 +192,7 @@ src/
 - [x] Experience 섹션 — 실무 경험 데이터 카드 (닥프렌즈/인사이트플러스)
 - [x] 프로젝트 토글 아코디언 — 주요 프로젝트 접기/펼치기
 - [x] Retrospective 섹션 — 회고 섹션 (작성 예정)
-- [ ] Projects 섹션 상세 구현
+- [x] Projects 섹션 — 썸네일 카드 캐러셀 (7개 프로젝트, 돋보기, GIF 지원)
 - [ ] 기술 스택 필터
 - [ ] 모바일 반응형 완성도 고도화
 
@@ -206,6 +237,7 @@ pnpm lint     # 린트 검사
 | 프로필 사진 | `public/profile-photo.png` 교체 |
 | 자기소개 / 회사 이력 | `src/entities/profile/ui/` |
 | Experience 데이터 | `src/widgets/experience/model/data.ts` |
+| Projects 데이터 | `src/widgets/projects/model/data.ts` |
 | 사이드바 링크 | `src/features/navigation/ui/LeftDock.tsx` |
 | Quick Links URL | `src/features/navigation/ui/QuickLinks.tsx` |
 | 아이콘 추가 | `src/shared/ui/icons/` + `index.ts` export 추가 |
