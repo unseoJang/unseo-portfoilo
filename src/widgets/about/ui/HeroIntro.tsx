@@ -3,7 +3,7 @@ import styles from "./HeroIntro.module.css";
 export function HeroIntro() {
 	return (
 		<>
-			<p className={styles.eyebrow}>Frontend Engineer · Jang Unseo</p>
+			<p className={styles.eyebrow}>프론트엔드 엔지니어 4년차 · Jang Unseo</p>
 			<h1 className={styles.title}>
 				장운서
 				<span className={styles.accent}>Portfolio</span>

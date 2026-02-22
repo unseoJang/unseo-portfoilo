@@ -4,6 +4,7 @@ export type Project = {
 	client: string;
 	tech: string[];
 	url?: string;
+	logo?: string;
 	description?: string;
 	highlights?: string[];
 };

@@ -1,0 +1,118 @@
+.experienceItem {
+	border: 1px solid var(--c-border);
+	border-radius: 16px;
+	background: var(--c-surface);
+	padding: 14px 15px;
+	transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.experienceItem + .experienceItem {
+	margin-top: 10px;
+}
+
+.experienceHeader {
+	display: flex;
+	flex-direction: column;
+	gap: 3px;
+	margin-bottom: 14px;
+}
+
+.experienceTop {
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+	gap: 12px;
+}
+
+.experienceItem h3 {
+	font-size: 1.4rem;
+	font-weight: 700;
+	letter-spacing: -0.02em;
+	color: var(--c-text-strong);
+}
+
+.companyLink {
+	color: var(--c-text-strong);
+	text-decoration: none;
+	transition: color 0.2s ease;
+}
+
+.companyLink:hover {
+	color: var(--c-text-accent);
+}
+
+.experiencePeriod {
+	font-size: 0.78rem;
+	letter-spacing: 0.01em;
+	color: var(--c-text-accent);
+	transition: color 0.3s ease;
+}
+
+.experienceRole {
+	font-size: 0.82rem;
+	color: var(--c-text-faint);
+	transition: color 0.3s ease;
+}
+
+.taskList {
+	list-style: none;
+	padding: 0;
+	margin: 0 0 16px;
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.taskList li {
+	padding-left: 14px;
+	position: relative;
+	font-size: 0.9rem;
+	line-height: 1.55;
+	color: var(--c-text);
+	transition: color 0.3s ease;
+}
+
+.taskList li::before {
+	content: "–";
+	position: absolute;
+	left: 0;
+	color: var(--c-text-accent);
+}
+
+.projectGrid {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	margin-top: 14px;
+}
+
+/* ── Project Toggle ── */
+.projectToggle {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	margin-top: 16px;
+	padding: 7px 14px;
+	border-radius: 999px;
+	border: 1px solid var(--c-border-item);
+	background: var(--c-surface-raised);
+	font-size: 0.82rem;
+	font-weight: 600;
+	color: var(--c-text);
+	transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.projectToggle:hover {
+	border-color: var(--c-nav-hover-border);
+	background: var(--c-nav-hover-bg);
+	color: var(--c-text-accent);
+}
+
+.toggleIcon {
+	display: inline-block;
+	transition: transform 0.25s ease;
+}
+
+.projectToggleOpen .toggleIcon {
+	transform: rotate(180deg);
+}

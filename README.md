@@ -17,6 +17,9 @@ Next.js App Router 기반으로 구성하며, FSD(Feature-Sliced Design) 아키�
 | 프레임워크 | Next.js 16 (App Router) |
 | 언어 | TypeScript |
 | 스타일링 | CSS Modules |
+| 서버 상태 | TanStack Query |
+| 클라이언트 상태 | Zustand |
+| API 모킹 | MSW (Mock Service Worker) |
 | 폰트 | Geist (영문), Noto Sans KR (한글) |
 | 패키지 매니저 | pnpm |
 
@@ -25,66 +28,128 @@ Next.js App Router 기반으로 구성하며, FSD(Feature-Sliced Design) 아키�
 ```
 src/
 ├── app/                        # 라우팅, 레이아웃, 글로벌 스타일
-│   ├── globals.css
-│   ├── layout.tsx              # Noto Sans KR 전역 폰트 적용
-│   ├── loading.module.css      # 로딩 스크린 스타일
+│   ├── globals.css             # CSS 리셋 + CSS 변수 + smooth scroll
+│   ├── layout.tsx              # MSWProvider + QueryProvider 래핑
+│   ├── loading.module.css
 │   ├── page.tsx
 │   ├── page.module.css
-│   └── LoadingGate.tsx         # 3초 필수 로딩 오버레이 (Client Component)
+│   └── LoadingGate.tsx         # 로딩 오버레이 (children 항상 마운트)
 │
 ├── shared/                     # 비즈니스 로직 없는 재사용 자원
+│   ├── api/
+│   │   └── endpoints.ts        # API 엔드포인트 상수
+│   ├── providers/
+│   │   ├── MSWProvider.tsx     # MSW 서비스 워커 초기화
+│   │   └── QueryProvider.tsx   # TanStack QueryClient 제공
 │   └── ui/
+│       ├── panel.module.css    # 공통 섹션 패널 스타일
+│       ├── typography.module.css # 공통 타이포그래피 스타일
 │       └── icons/
 │           ├── LinkedInIcon.tsx
 │           ├── GitHubIcon.tsx
-│           └── index.ts        # 전체 아이콘 통합 export
+│           └── index.ts
 │
 ├── entities/                   # 도메인 객체 단위 UI
 │   └── profile/
 │       ├── ui/
-│       │   ├── AboutColumn.tsx         # 프로필 사진, 자기소개, 블로그
+│       │   ├── AboutColumn.tsx
 │       │   ├── AboutColumn.module.css
-│       │   ├── CompanyHistoryCard.tsx  # 회사 이력 (hover 상세 펼침)
-│       │   └── CompanyHistoryCard.module.css
+│       │   ├── CompanyHistoryCard.tsx
+│       │   ├── CompanyHistoryCard.module.css
+│       │   └── index.ts
 │       └── index.ts
 │
-├── features/                   # 사용자 탐색 기능
+├── features/                   # 사용자 인터랙션 기능
 │   └── navigation/
 │       ├── ui/
-│       │   ├── LeftDock.tsx            # 고정 왼쪽 사이드바 (앵커 네비게이션)
+│       │   ├── LeftDock.tsx            # 고정 사이드바 (부드러운 앵커 스크롤)
 │       │   ├── LeftDock.module.css
-│       │   ├── QuickLinks.tsx          # 우측 하단 고정 빠른 링크
-│       │   └── QuickLinks.module.css
+│       │   ├── ThemeToggle.tsx         # 다크/라이트 테마 토글
+│       │   ├── ThemeToggle.module.css
+│       │   ├── QuickLinks.tsx          # 우측 하단 고정 링크
+│       │   ├── QuickLinks.module.css
+│       │   └── index.ts
 │       └── index.ts
 │
+├── mocks/                      # MSW 핸들러
+│   ├── browser.ts
+│   └── handlers.ts             # GET /api/experience 모킹 (600ms 딜레이)
+│
 └── widgets/                    # 페이지 조합 단위
+    ├── about/
+    │   ├── ui/
+    │   │   ├── AboutSection.tsx        # About 메인 패널
+    │   │   ├── AboutSection.module.css
+    │   │   ├── HeroIntro.tsx           # 타이틀, 설명, 성과 배지
+    │   │   ├── HeroIntro.module.css
+    │   │   ├── ProjectsSection.tsx     # Selected Projects (placeholder)
+    │   │   ├── ProjectsSection.module.css
+    │   │   ├── ContactSection.tsx      # 이력서 / 메일 CTA
+    │   │   ├── ContactSection.module.css
+    │   │   └── index.ts
+    │   └── index.ts
+    │
+    ├── experience/
+    │   ├── model/
+    │   │   ├── api.ts                  # fetchExperience (TanStack Query queryFn)
+    │   │   ├── data.ts                 # 닥프렌즈/인사이트플러스 경험 데이터
+    │   │   ├── queryKeys.ts            # 쿼리 키 상수 관리
+    │   │   ├── store.ts                # Zustand (프로젝트 아코디언 UI 상태)
+    │   │   └── types.ts                # Experience, Project 타입
+    │   ├── ui/
+    │   │   ├── ExperienceSection.tsx   # 메인 섹션 (useQuery 조합)
+    │   │   ├── ExperienceSection.module.css
+    │   │   ├── ExperienceItem.tsx      # 회사별 경험 카드
+    │   │   ├── ExperienceItem.module.css
+    │   │   ├── ProjectCard.tsx         # 프로젝트 상세 카드 (로고/설명/하이라이트)
+    │   │   ├── ProjectCard.module.css
+    │   │   ├── ExperienceSkeleton.tsx  # shimmer 로딩 스켈레톤
+    │   │   ├── ExperienceSkeleton.module.css
+    │   │   └── index.ts
+    │   └── index.ts
+    │
+    ├── retrospective/
+    │   ├── ui/
+    │   │   ├── RetrospectiveSection.tsx
+    │   │   ├── RetrospectiveSection.module.css
+    │   │   └── index.ts
+    │   └── index.ts
+    │
     └── landing/
         ├── ui/
-        │   ├── LandingMain.tsx         # entities + features 조합 루트
-        │   ├── LandingMain.module.css
-        │   ├── MainContent.tsx         # 메인 콘텐츠 (Experience, Projects, Contact)
-        │   └── MainContent.module.css
+        │   ├── LandingMain.tsx         # 전체 페이지 조합 루트
+        │   └── LandingMain.module.css
         └── index.ts
 ```
 
 ## 구현된 기능
 
 ### UI / 레이아웃
-- **로딩 스크린**: 진입 시 3초 필수 표시 → 페이드아웃 전환 (`LoadingGate`)
-- **왼쪽 사이드바**: 고정(fixed) 네비게이션, 앵커 스크롤 링크, 하단 copyright
-- **우측 하단 Quick Links**: LinkedIn, Blog, GitHub, 이력서 링크 (SVG 아이콘 적용)
-- **About 섹션**: 프로필 사진, 자기소개, 다녔던 회사(hover 상세), 블로그 링크
-- **메인 콘텐츠**: 인트로, 성과 배지, Experience, Selected Projects, Contact
-- **단일 스크롤**: `html/body overflow:hidden` → `.page` 단독 스크롤 컨테이너
+- **로딩 스크린**: 진입 시 필수 표시 → 페이드아웃 전환, 메인 콘텐츠 항상 마운트 (`LoadingGate`)
+- **부드러운 스크롤**: `scroll-behavior: smooth` + 사이드바 `scrollIntoView` 직접 호출
+- **왼쪽 사이드바**: 고정 네비게이션 (About / Experience / Projects / Retrospective / Contact), 직함 + 연차 표시
+- **우측 하단 Quick Links**: LinkedIn, Blog, GitHub, 이력서 (SVG 아이콘)
+- **About 섹션**: 프로필 사진, 자기소개, 회사 이력 hover 상세, 블로그 링크
+- **Experience 섹션**: 회사별 경험 카드, 프로젝트 아코디언 토글
+
+### Experience 데이터 / 상태 관리
+- **MSW**: `GET /api/experience` 모킹 (600ms 인위적 딜레이)
+- **TanStack Query**: `useQuery`로 데이터 페칭, 캐싱, 로딩/에러 상태 관리
+- **Zustand**: 프로젝트 목록 아코디언 열림/닫힘 UI 상태
+- **shimmer 스켈레톤**: 로딩 중 placeholder 애니메이션
+- **ProjectCard**: 로고(favicon), 설명, 하이라이트, 기술 스택 태그 표시
+- **닫힌 사이트 처리**: 인사이트플러스 프로젝트 — 링크/로고 없이 `cursor: default` 카드
 
 ### 아키텍처
-- FSD 4-레이어 구조 (`shared` → `entities` → `features` → `widgets`)
-- 아이콘 컴포넌트 `shared/ui/icons` 통합 모듈화
-- 각 레이어 `index.ts` barrel export
-- CSS Modules 컴포넌트별 완전 분리
+- FSD 5-레이어 구조 (`shared` → `entities` → `features` → `widgets` → `app`)
+- 각 위젯 `model/` 레이어 분리 (api, data, queryKeys, store, types)
+- 공통 스타일 추출: `shared/ui/panel.module.css`, `shared/ui/typography.module.css`
+- API 엔드포인트 상수화: `shared/api/endpoints.ts`
+- 쿼리 키 상수화: `widgets/experience/model/queryKeys.ts`
+- 모든 레이어 `index.ts` barrel export
 
 ### 폰트 / 타이포그래피
-- 전체 한글 텍스트 `Noto Sans KR` 적용 (`next/font/google`)
+- 전체 한글 텍스트 `Noto Sans KR` 적용
 - 영문 `Geist` 폰트 병행 적용
 
 ## 로드맵
@@ -92,24 +157,29 @@ src/
 ### MVP
 - [x] 외부 링크 모음 (LinkedIn, Blog, GitHub, 이력서) — QuickLinks 고정 UI
 - [x] 반응형 레이아웃 기반 구성 — 1080px / 840px / 520px 브레이크포인트
-- [x] 앵커 네비게이션 — 왼쪽 사이드바 섹션 이동
-- [ ] 프로젝트 상세 토글 (문제 / 해결 / 성과 확장)
+- [x] 앵커 네비게이션 — 왼쪽 사이드바 부드러운 섹션 이동
+- [x] Experience 섹션 — 실무 경험 데이터 카드 (닥프렌즈/인사이트플러스)
+- [x] 프로젝트 토글 아코디언 — 주요 프로젝트 접기/펼치기
+- [x] Retrospective 섹션 — 회고 섹션 (작성 예정)
+- [ ] Projects 섹션 상세 구현
 - [ ] 기술 스택 필터
 - [ ] 모바일 반응형 완성도 고도화
 
 ### 브랜딩 강화
-- [x] 로딩 인트로 스크린 — 3초 필수 표시 → 페이드아웃 전환
-- [x] 성과 지표 배지 — Lighthouse 90+, TTI 35% 개선 등 정적 배지
+- [x] 로딩 인트로 스크린 — 페이드아웃 시 흰 화면 없이 메인 즉시 표시
+- [x] 성과 지표 배지 — Lighthouse 90+, TTI 35% 개선 등
 - [x] 회사 이력 hover 상세 펼침 — CompanyHistoryCard CSS transition
-- [ ] 성과 지표 배지 카운트업 애니메이션
+- [x] shimmer 스켈레톤 — 데이터 로딩 중 애니메이션 placeholder
+- [ ] 성과 지표 카운트업 애니메이션
 - [ ] 프로젝트 데모 미리보기 (hover)
 - [ ] 테크 블로그 피드 자동 노출
 
 ### 신뢰도 / 채용용
-- [x] 회사 이력 카드 — Docfriends / PitaP.at 경력 표시
+- [x] 경력 연차 표시 — 사이드바 및 인트로에 "프론트엔드 엔지니어 4년차" 명시
+- [x] 닥프렌즈 프로젝트 상세 — 로고, 설명, 주요 성과, 기술 스택 카드
 - [x] 이력서 다운로드 / 메일 연락 CTA
-- [ ] 프로젝트 상세 성과 토글
 - [ ] 추천 / 후기 섹션
+- [ ] Retrospective 내용 작성
 
 ## 시작하기
 
@@ -135,8 +205,10 @@ pnpm lint     # 린트 검사
 |------|------|
 | 프로필 사진 | `public/profile-photo.png` 교체 |
 | 자기소개 / 회사 이력 | `src/entities/profile/ui/` |
-| Experience / Projects / Contact | `src/widgets/landing/ui/MainContent.tsx` |
+| Experience 데이터 | `src/widgets/experience/model/data.ts` |
 | 사이드바 링크 | `src/features/navigation/ui/LeftDock.tsx` |
 | Quick Links URL | `src/features/navigation/ui/QuickLinks.tsx` |
 | 아이콘 추가 | `src/shared/ui/icons/` + `index.ts` export 추가 |
-| 이메일 주소 | `src/widgets/landing/ui/MainContent.tsx` `mailto` 링크 |
+| API 엔드포인트 | `src/shared/api/endpoints.ts` |
+| MSW 핸들러 | `src/mocks/handlers.ts` |
+| 이메일 주소 | `src/widgets/about/ui/ContactSection.tsx` |

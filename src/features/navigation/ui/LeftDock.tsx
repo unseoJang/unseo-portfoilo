@@ -1,17 +1,35 @@
+"use client";
+
 import styles from "./LeftDock.module.css";
 import { ThemeToggle } from ".";
+
+const NAV_ITEMS = [
+  { label: "About", target: "section-about" },
+  { label: "Experience", target: "section-experience" },
+  { label: "Projects", target: "section-projects" },
+  { label: "Retrospective", target: "section-retrospective" },
+  { label: "Contact", target: "section-contact" },
+] as const;
+
+function handleScrollTo(id: string) {
+  return (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  };
+}
 
 export function LeftDock() {
   return (
     <aside className={styles.leftDock} aria-label="왼쪽 사이드바">
       <div className={styles.leftDockTop}>
         <p className={styles.leftDockName}>unseo</p>
-        <p className={styles.leftDockRole}>Frontend Engineer</p>
+        <p className={styles.leftDockRole}>Frontend Engineer · 4yrs</p>
         <nav className={styles.leftDockNav}>
-          <a href="#section-about">About</a>
-          <a href="#section-experience">Experience</a>
-          <a href="#section-projects">Projects</a>
-          <a href="#section-contact">Contact</a>
+          {NAV_ITEMS.map(({ label, target }) => (
+            <a key={target} href={`#${target}`} onClick={handleScrollTo(target)}>
+              {label}
+            </a>
+          ))}
         </nav>
         <div className={styles.leftDockActions}>
           <ThemeToggle />

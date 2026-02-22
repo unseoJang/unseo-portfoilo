@@ -18,6 +18,7 @@ export const EXPERIENCES: Experience[] = [
 				client: "닥프렌즈",
 				tech: ["Vue.js 2·3", "Nuxt.js", "TypeScript", "Pinia", "Vite", "AWS S3·CloudFront"],
 				url: "https://web.doctalk.co.kr/",
+				logo: "https://web.doctalk.co.kr/favicon.ico",
 				description: "네이버·당근·카카오·EMR 외부 플랫폼과 환자 데이터를 연동하는 의료기관 예약 플랫폼",
 				highlights: [
 					"플랫폼별 API 응답을 ViewModel로 통합, 신규 연동 수정 범위를 ViewModel 내부로 한정",
@@ -32,6 +33,7 @@ export const EXPERIENCES: Experience[] = [
 				client: "닥프렌즈",
 				tech: ["jQuery → Vue3", "TypeScript", "Vite", "socket.io"],
 				url: "https://web.doctalk.co.kr/",
+				logo: "https://web.doctalk.co.kr/favicon.ico",
 				description: "레거시(jQuery) 기반 전문가 플랫폼을 점진 전환으로 재구축",
 				highlights: [
 					"페이지 로딩 4.0s → 2.0s 개선 (Lighthouse/GSC 측정 기반)",
@@ -45,7 +47,6 @@ export const EXPERIENCES: Experience[] = [
 				period: "2023.04 — 2024.12",
 				client: "인사이트플러스",
 				tech: ["Vue3", "TypeScript", "Vite", "FullCalendar"],
-				url: "https://plus.inpsyt.me/login",
 				description: "B2B 심리상담센터 예약·일정·상담 프로세스를 캘린더 중심으로 통합한 관리 플랫폼",
 				highlights: [
 					"모듈 경계 정의로 기능 확장 시 변경 범위를 특정 모듈로 한정",
@@ -71,6 +72,7 @@ export const EXPERIENCES: Experience[] = [
 				client: "닥프렌즈",
 				tech: ["Nuxt.js 2.0", "TypeScript", "SCSS"],
 				url: "https://message.doctalk.co.kr/login-page",
+				logo: "https://web.doctalk.co.kr/favicon.ico",
 				description: "환자 맞춤형 자동 문자 발송 서비스 (사내 첫 Nuxt.js 프로젝트)",
 				highlights: [
 					"예약문자·직접문자·페이지네이션 중심 서비스 구축",
@@ -82,6 +84,7 @@ export const EXPERIENCES: Experience[] = [
 				client: "닥프렌즈",
 				tech: ["Vue.js 2", "TypeScript", "Vuex", "AWS S3·CloudFront"],
 				url: "https://skma.doctalk.co.kr/",
+				logo: "https://web.doctalk.co.kr/favicon.ico",
 				description: "병원 재방문 안내 자동화를 위한 EMR 기반 문자 리텐션 서비스",
 				highlights: [
 					"발송 조건/주기/대상 관리 UI 구현으로 수동 작업을 설정 기반으로 전환",
@@ -93,7 +96,6 @@ export const EXPERIENCES: Experience[] = [
 				period: "2023.08.07 — 2023.08.16",
 				client: "인사이트플러스",
 				tech: ["Vue3", "JavaScript", "Bootstrap"],
-				url: "https://admin.inpsyt.me/login",
 				description: "인싸이트 플러스 내부 관리자 사이트 초기 구축",
 			},
 		],

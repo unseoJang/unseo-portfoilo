@@ -1,0 +1,28 @@
+.card {
+	display: flex;
+	flex-direction: row;
+	align-items: stretch;
+	border: 1px solid var(--c-border);
+	border-radius: 16px;
+	background: var(--c-surface);
+	overflow: hidden;
+	transition: border-color 0.2s ease, transform 0.2s ease, background 0.2s ease;
+}
+
+.card:hover {
+	border-color: var(--c-nav-hover-border);
+	transform: translateY(-2px);
+}
+
+.cardRight {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	min-width: 0;
+}
+
+@media (max-width: 640px) {
+	.card {
+		flex-direction: column;
+	}
+}

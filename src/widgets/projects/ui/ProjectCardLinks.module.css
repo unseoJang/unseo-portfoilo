@@ -1,0 +1,35 @@
+.links {
+	display: flex;
+	gap: 8px;
+	padding: 12px 20px;
+	border-top: 1px solid var(--c-border);
+}
+
+.linkDemo,
+.linkSource {
+	font-size: 0.8rem;
+	font-weight: 600;
+	text-decoration: none;
+	padding: 5px 12px;
+	border-radius: 999px;
+	border: 1px solid var(--c-border-item);
+	transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+	color: var(--c-text);
+}
+
+.linkDemo {
+	background: var(--c-surface-raised);
+	color: var(--c-text-accent);
+	border-color: var(--c-text-accent);
+}
+
+.linkDemo:hover {
+	background: var(--c-text-accent);
+	color: var(--c-surface);
+}
+
+.linkSource:hover {
+	border-color: var(--c-nav-hover-border);
+	background: var(--c-nav-hover-bg);
+	color: var(--c-text-accent);
+}

@@ -1,7 +1,7 @@
 import { AboutColumn } from "@/entities/profile";
 import panel from "@/shared/ui/panel.module.css";
 import styles from "./AboutSection.module.css";
-import { ContactSection, Experience, HeroIntro, Projects } from ".";
+import { ContactSection, HeroIntro } from ".";
 
 export function AboutSection() {
 	return (
@@ -10,8 +10,6 @@ export function AboutSection() {
 				<AboutColumn />
 				<div className={styles.contentColumn}>
 				<HeroIntro />
-				<Experience />
-				<Projects />
 				<ContactSection />
 				</div>
 			</div>

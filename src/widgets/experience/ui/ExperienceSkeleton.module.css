@@ -1,0 +1,39 @@
+@keyframes shimmer {
+	0% { background-position: -400px 0; }
+	100% { background-position: 400px 0; }
+}
+
+.skeleton {
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+	margin-top: 20px;
+}
+
+.skeletonLine,
+.skeletonCard {
+	border-radius: 10px;
+	background: linear-gradient(
+		90deg,
+		var(--c-surface) 25%,
+		var(--c-surface-raised) 50%,
+		var(--c-surface) 75%
+	);
+	background-size: 800px 100%;
+	animation: shimmer 1.4s infinite linear;
+}
+
+.skeletonTitle {
+	height: 18px;
+	width: 160px;
+}
+
+.skeletonSub {
+	height: 14px;
+	width: 280px;
+}
+
+.skeletonCard {
+	height: 100px;
+	border-radius: 16px;
+}
