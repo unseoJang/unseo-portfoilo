@@ -1,3 +1,4 @@
+import Image from "next/image"
 import styles from "./TechStack.module.css"
 
 const CDN = "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons"
@@ -84,8 +85,7 @@ export function TechStack() {
 					<div className={styles.iconRow}>
 						{skills.map((skill) =>
 							skill.icon ? (
-								// eslint-disable-next-line @next/next/no-img-element
-								<img
+								<Image
 									key={skill.name}
 									className={styles.icon}
 									src={skill.icon}

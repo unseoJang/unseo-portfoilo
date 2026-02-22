@@ -1,23 +1,28 @@
-import type { Project } from "../model/types";
-import styles from "./ProjectCard.module.css";
+"use client"
+
+import Image from "next/image"
+import type { Project } from "../model/types"
+import styles from "./ProjectCard.module.css"
 
 export function ProjectCard({ project }: { project: Project }) {
-	const Tag = project.url ? "a" : "span";
+	const Tag = project.url ? "a" : "span"
 	const linkProps = project.url
 		? { href: project.url, target: "_blank", rel: "noreferrer noopener" }
-		: {};
+		: {}
 
 	return (
 		<Tag className={styles.projectCard} {...linkProps}>
 			<div className={styles.projectCardHeader}>
 				{project.logo && (
-					// eslint-disable-next-line @next/next/no-img-element
-					<img
+					<Image
 						src={project.logo}
 						alt={`${project.name} logo`}
 						className={styles.projectLogo}
+						width={20}
+						height={20}
+						unoptimized
 						onError={(e) => {
-							e.currentTarget.style.display = "none";
+							(e.currentTarget as HTMLImageElement).style.display = "none"
 						}}
 					/>
 				)}
@@ -46,5 +51,5 @@ export function ProjectCard({ project }: { project: Project }) {
 				))}
 			</ul>
 		</Tag>
-	);
+	)
 }

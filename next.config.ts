@@ -7,8 +7,17 @@ const nextConfig: NextConfig = {
 				protocol: "https",
 				hostname: "img.youtube.com",
 			},
+			{
+				protocol: "https",
+				hostname: "cdn.jsdelivr.net",
+			},
+			{
+				protocol: "https",
+				hostname: "web.doctalk.co.kr",
+			},
 		],
 	},
 }
 
 export default nextConfig
+

@@ -18,7 +18,7 @@ export function ContactSection() {
 				</a>
 				<a
 					className={styles.secondary}
-					href="mailto:contact@example.com"
+					href="mailto:qqbck123@gmail.com"
 					target="_blank"
 					rel="noreferrer noopener"
 				>
