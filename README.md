@@ -3,6 +3,8 @@
 장운서(Unseo Jang)의 개인 포트폴리오 웹사이트입니다.  
 Next.js App Router 기반으로 구성하며, FSD(Feature-Sliced Design) 아키텍처를 적용해 관심사를 레이어별로 분리했습니다.
 
+- **GitHub**: [github.com/unseoJang/unseo-portfoilo](https://github.com/unseoJang/unseo-portfoilo)
+
 ## 목표
 
 - 진입 시 브랜딩 인상 극대화 (로딩 스크린 → 메인 전환)
@@ -78,11 +80,13 @@ src/
 └── widgets/                    # 페이지 조합 단위
     ├── about/
     │   ├── ui/
-    │   │   ├── AboutSection.tsx        # About 메인 패널
+    │   │   ├── AboutSection.tsx        # About 섹션 래퍼
     │   │   ├── AboutSection.module.css
-    │   │   ├── HeroIntro.tsx           # 타이틀, 설명, 성과 배지
+    │   │   ├── HeroIntro.tsx           # 히어로 자기소개
     │   │   ├── HeroIntro.module.css
-    │   │   ├── ProjectsSection.tsx     # Selected Projects (placeholder)
+    │   │   ├── TechStack.tsx           # 기술 스택 시각화
+    │   │   ├── TechStack.module.css
+    │   │   ├── ProjectsSection.tsx     # (about 내부 미니 프로젝트)
     │   │   ├── ProjectsSection.module.css
     │   │   ├── ContactSection.tsx      # 이력서 / 메일 CTA
     │   │   ├── ContactSection.module.css
