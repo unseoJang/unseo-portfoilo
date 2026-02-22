@@ -4,6 +4,7 @@
 Next.js App Router 기반으로 구성하며, FSD(Feature-Sliced Design) 아키텍처를 적용해 관심사를 레이어별로 분리했습니다.
 
 - **GitHub**: [github.com/unseoJang/unseo-portfoilo](https://github.com/unseoJang/unseo-portfoilo)
+- **Demo**: [unseo-portfoilo.vercel.app](https://unseo-portfoilo.vercel.app/)
 
 ## 목표
 
